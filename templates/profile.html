@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <div class="user-info">
+        <h2>Информация о пользователе</h2>
+        <p>Ид: {{ user.id }}</p>
+        <p>Логин: {{ user.login }}</p>
+        <p>Пароль: {{ user.password }}</p>
+        <p>Имя: {{ user.first_name }}</p>
+        <p>Фамилия: {{ user.last_name }}</p>
+        <p>Телефон: {{ user.phone }}</p>
+        <p>Роль: {{ user.role }}</p>
+        <a href="/edit_profile">Изменить данные</a>
+    </div>
+    <div class="reports">
+        <h2>Отчеты</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ид</th>
+                    <th>Дата</th>
+                    <th>ИдВещества</th>
+                    <th>ИдПользователя</th>
+                    <th>ПлощадьПоражения</th>
+                    <th>Средняя плотность населения</th>
+                    <th>Количество пострадавших</th>
+                    <th>Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for report in reports %}
+                <tr>
+                    <td>{{ report.id }}</td>
+                    <td>{{ report.date }}</td>
+                    <td>{{ report.substance_id }}</td>
+                    <td>{{ report.user_id }}</td>
+                    <td>{{ report.affected_area }}</td>
+                    <td>{{ report.average_population_density }}</td>
+                    <td>{{ report.affected }}</td>
+                    <td><a href="#">Открыть</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

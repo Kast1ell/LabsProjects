@@ -1,0 +1,63 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <div class="parameters">
+        <h2>Параметры</h2>
+        <form id="forecastForm" method="POST" action="/start_forecast">
+            <div>
+                <p>Тип распространения:</p>
+                <input type="radio" name="spread_type" value="explosion"> Взрыв
+                <input type="radio" name="spread_type" value="spread"> Распространение
+            </div>
+            <div>
+                <p>Погодные параметры:</p>
+                <p>Давление: <input type="number" name="pressure"></p>
+                <p>Температура: <input type="number" name="temperature"></p>
+                <p>Направление ветра: <input type="text" name="wind_direction"></p>
+            </div>
+            <div>
+                <p>Начальные параметры вещества:</p>
+                <p>Давление вещества: <input type="number" name="substance_pressure"></p>
+                <p>Объём вещества: <input type="number" name="substance_volume"></p>
+                <p>Температура вещества: <input type="number" name="substance_temperature"></p>
+            </div>
+            <div>
+                <p>Выберите способ ввода параметров вещества:</p>
+                <input type="radio" name="input_method" value="manual"> Вручную
+                <input type="radio" name="input_method" value="automatic"> Автоматически из базы данных
+            </div>
+            <div>
+                <button type="submit">Начать прогнозирование</button>
+            </div>
+        </form>
+    </div>
+    <div class="result">
+        <h2>Результат</h2>
+        <div>
+        <button onclick="zoomIn()">Увеличить</button>
+        <button onclick="zoomOut()">Уменьшить</button>
+        </div>
+        <div class="image-container">
+            <img id="image" src="{{ url_for('static', filename='images/map.png') }}" alt="Пример изображения">
+        </div>
+
+    </div>
+    <script>
+        function zoomIn() {
+            var image = document.getElementById('image');
+            var currentWidth = image.clientWidth;
+            var currentHeight = image.clientHeight;
+            image.style.width = (currentWidth * 1.1) + 'px';  // Увеличиваем ширину на 10%
+            image.style.height = (currentHeight * 1.1) + 'px'; // Увеличиваем высоту на 10%
+        }
+
+        function zoomOut() {
+            var image = document.getElementById('image');
+            var currentWidth = image.clientWidth;
+            var currentHeight = image.clientHeight;
+            image.style.width = (currentWidth * 0.9) + 'px';  // Уменьшаем ширину на 10%
+            image.style.height = (currentHeight * 0.9) + 'px'; // Уменьшаем высоту на 10%
+        }
+    </script>
+</section>
+{% endblock %}

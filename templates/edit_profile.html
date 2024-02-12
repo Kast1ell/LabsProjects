@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <h2>Изменение информации о пользователе</h2>
+    <form method="POST" action="/update_profile">
+        <label for="id">Ид:</label>
+        <input type="text" id="id" name="id" value="{{ user.id }}" readonly><br>
+        <label for="login">Логин:</label>
+        <input type="text" id="login" name="login" value="{{ user.login }}" readonly><br>
+        <label for="password">Пароль:</label>
+        <input type="text" id="password" name="password" value="{{ user.password }}"><br>
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}"><br>
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}"><br>
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" name="phone" value="{{ user.phone }}"><br>
+        <label for="role">Роль:</label>
+        <input type="text" id="role" name="role" value="{{ user.role }}" readonly><br>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+<section>
+    <h2>Последние обновления</h2>
+    <ul>
+        {% for update in updates %}
+        <li>{{ update.title }}: {{ update.description }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

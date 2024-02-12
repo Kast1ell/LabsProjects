@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* main */
+section {
+    margin-top: 20px;
+}
+
+/* profile */
+.user-info {
+    background-color: #f2f2f2;
+    float: left;
+    width: 30%;
+}
+.reports {
+    background-color: #f2f2f2;
+    float: right;
+    width: 65%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+/* Prognoz */
+.parameters {
+    background-color: #f2f2f2;
+    float: left;
+    padding: 8px;
+    width: 30%;
+}
+.result {
+    padding: 8px;
+    float: right;
+    width: 65%;
+    height: 200px; /* Высота поля для результатов */
+    background-color: #f2f2f2;
+}
+.image-container {
+    background-color: #f2f2f2;
+    max-width: 100%; /* Ограничиваем максимальную ширину блока */
+    max-height: 1000px; /* Ограничиваем максимальную высоту блока */
+    overflow: hidden; /* Скрываем изображение, если оно выходит за пределы блока */
+    cursor: move; /* Изменяем курсор мыши на стрелку перемещения */
+    overflow-y: scroll; /* Добавляем вертикальный скроллбар */
+    overflow-x: scroll; /* Добавляем вертикальный скроллбар */
+}
+
+#image {
+    display: block; /* Обеспечиваем корректное отображение изображения */
+    margin: auto; /* Выравниваем изображение по центру */
+    width: 100%; /* Устанавливаем ширину изображения на 100% блока */
+    height: auto; /* Автоматически вычисляем высоту изображения */
+}
